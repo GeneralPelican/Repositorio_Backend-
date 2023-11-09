@@ -16,6 +16,7 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -93,15 +94,15 @@ public class TrucksResource {
     }
 
     @DELETE
-    @Path("deleteTruck")
+    @Path("deleteTruck/{idText}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response deleteTruckById(String idText) {
+    public Response deleteTruckById(@PathParam("idText") String idText) {
         try {
-            int id = Integer.parseInt(idText);
+            int id = Integer.parseInt(idText.replace("\"", ""));
 
             if (mongoRepository.deleteTruckById(id)) {
-                return Response.status(200).entity("Deleted correctlly").build();
+                return Response.status(200).entity("{\"result\":\"Borrado correctamente\"}").build();
             }
         } catch (NumberFormatException ex) {
             return Response.status(Response.Status.BAD_REQUEST).build();
@@ -119,7 +120,7 @@ public class TrucksResource {
             TruckModel truck = gson.fromJson(truckJson, TruckModel.class);
             
             if (truck == null) {
-                Response.status(Response.Status.BAD_REQUEST).entity("Json error").build();
+                Response.status(Response.Status.BAD_REQUEST).entity("{\"result\":\"Json error!\"}").build();
             }
             
             boolean modified = mongoRepository.modifyTruck(truck);
@@ -130,7 +131,7 @@ public class TrucksResource {
             
             return Response.status(200).entity(gson.toJson(modified)).build();
         }catch(JsonSyntaxException ex){
-            return Response.status(Response.Status.BAD_REQUEST).entity("Error in the json syntax").build();
+            return Response.status(Response.Status.BAD_REQUEST).entity("{\"result\":\"Error on Json syntax!\"}").build();
         }
         
     }

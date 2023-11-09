@@ -4,7 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/benja/OneDrive/Escritorio/cosas/Proyectos%20NB/MinappServer/src/java/com/rest/EmployeesResource.java</file>
-            <file>file:/C:/Users/benja/OneDrive/Escritorio/cosas/Proyectos%20NB/MinappServer/src/java/com/data/model/EmployeModel.java</file>
+            <file>file:/C:/Users/benja/OneDrive/Escritorio/cosas/Proyectos%20NB/MinappServer/src/java/com/data/repository/MongoRepository.java</file>
+            <file>file:/C:/Users/benja/OneDrive/Escritorio/cosas/Proyectos%20NB/MinappServer/src/java/com/rest/TrucksResource.java</file>
         </group>
     </open-files>
 </project-private>
