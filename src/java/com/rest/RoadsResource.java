@@ -65,7 +65,7 @@ public class RoadsResource {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
 
-        return Response.status(Response.Status.NOT_FOUND).entity("Road with that ID not found").build();
+        return Response.status(Response.Status.NOT_FOUND).build();
     }
     
     @POST
@@ -123,7 +123,7 @@ public class RoadsResource {
                 return Response.status(Response.Status.NOT_FOUND).build();
             }
             
-            return Response.status(200).entity(gson.toJson(modified)).build();
+            return Response.status(200).entity("{\"result\":\"Modificado correctamente\"}").build();
         }catch(JsonSyntaxException ex){
             return Response.status(Response.Status.BAD_REQUEST).entity("{\"result\":\"Error on Json syntax!\"}").build();
         }
