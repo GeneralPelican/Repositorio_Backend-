@@ -1,12 +1,14 @@
 package com.data.model;
 
 public class RoadModel {
-    
+
     private int id;
     private String name;
     private double coordinates[][];
-    
-    public RoadModel(){}
+
+    public RoadModel() {
+        id = -1;
+    }
 
     public RoadModel(int id, String name, double[][] coordinates) {
         this.id = id;
@@ -37,7 +39,5 @@ public class RoadModel {
     public void setCoordinates(double[][] coordinates) {
         this.coordinates = coordinates;
     }
-    
-    
-    
+
 }

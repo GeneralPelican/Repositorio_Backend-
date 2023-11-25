@@ -63,7 +63,7 @@ public class UpdateEndpoint {
     private void sendData() {
         try {
             String jsonInfo = "{\"trucks\":" + gson.toJson(mongoRepository.getTrucks());
-            jsonInfo = jsonInfo.concat(",\"lights\":"+ gson.toJson(mongoRepository.getLights()));
+            jsonInfo = jsonInfo.concat(",\"lights\":"+ gson.toJson(mongoRepository.getLights())+"}");
             session.getBasicRemote().sendText(jsonInfo);
         } catch (IOException e) {
             this.session = null;

@@ -8,6 +8,7 @@ public class LightModel {
     private double coordinates[];
 
     public LightModel() {
+        id = -1;
     }
 
     public LightModel(int id, String name, int state, double[] coordinates) {

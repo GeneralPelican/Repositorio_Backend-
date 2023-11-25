@@ -19,6 +19,7 @@ public class TruckModel {
     }
 
     public TruckModel() {
+        id = -1;
     }
 
     public int getId() {

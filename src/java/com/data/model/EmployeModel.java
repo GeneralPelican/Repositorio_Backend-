@@ -17,6 +17,7 @@ public class EmployeModel {
     private boolean isAdmin;
 
     public EmployeModel() {
+        id = -1;
     }
 
     public EmployeModel(int id, String name, String username, String password, boolean isAdmin) {
